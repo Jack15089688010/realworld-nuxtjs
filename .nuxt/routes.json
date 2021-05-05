@@ -1,0 +1,52 @@
+[
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\layout\\\\index.vue",
+    "children": [
+      {
+        "name": "home",
+        "path": "",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\home\\\\index.vue",
+        "_name": "_6dbb5327"
+      },
+      {
+        "name": "login",
+        "path": "/login",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue",
+        "_name": "_39a828e5"
+      },
+      {
+        "name": "register",
+        "path": "/register",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue",
+        "_name": "_39a828e5"
+      },
+      {
+        "name": "article",
+        "path": "/article/:slug",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\article\\\\index.vue",
+        "_name": "_2ec3df90"
+      },
+      {
+        "name": "editor",
+        "path": "/editor",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\edit\\\\index.vue",
+        "_name": "_64fe011c"
+      },
+      {
+        "name": "profile",
+        "path": "/profile/:username",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\profile\\\\index.vue",
+        "_name": "_42f175a5"
+      },
+      {
+        "name": "settings",
+        "path": "/settings",
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\settings\\\\index.vue",
+        "_name": "_34317b63"
+      }
+    ],
+    "_name": "_1ecb5e08"
+  }
+]
