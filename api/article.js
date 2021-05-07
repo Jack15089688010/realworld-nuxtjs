@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2021-05-04 15:09:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2021-05-06 23:51:12
+ */
 import { request } from '@/plugins/request'
 
 // 获取公共文章列表
@@ -51,5 +59,15 @@ export const getComments = slug => {
   return request({
     method: 'GET',
     url: `/api/articles/${slug}/comments`
+  })
+}
+
+
+// 评论文章
+export const addComment = (slug, body) => {
+  return request({
+    method: 'POST',
+    url: `/api/articles/${slug}/comments`,
+    data: {body}
   })
 }

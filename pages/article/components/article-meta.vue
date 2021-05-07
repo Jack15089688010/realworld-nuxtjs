@@ -27,7 +27,7 @@
     >
       <i class="ion-plus-round"></i>
       &nbsp;
-      Follow Eric Simons <span class="counter">(10)</span>
+       <span class="counter">(10)</span>
     </button>
     &nbsp;&nbsp;
     <button

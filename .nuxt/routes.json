@@ -7,46 +7,38 @@
       {
         "name": "home",
         "path": "",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\home\\\\index.vue",
-        "_name": "_6dbb5327"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\home\\\\index.vue"
       },
       {
         "name": "login",
         "path": "/login",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue",
-        "_name": "_39a828e5"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue"
       },
       {
         "name": "register",
         "path": "/register",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue",
-        "_name": "_39a828e5"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\login\\\\index.vue"
       },
       {
         "name": "article",
         "path": "/article/:slug",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\article\\\\index.vue",
-        "_name": "_2ec3df90"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\article\\\\index.vue"
       },
       {
         "name": "editor",
         "path": "/editor",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\edit\\\\index.vue",
-        "_name": "_64fe011c"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\edit\\\\index.vue"
       },
       {
         "name": "profile",
         "path": "/profile/:username",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\profile\\\\index.vue",
-        "_name": "_42f175a5"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\profile\\\\index.vue"
       },
       {
         "name": "settings",
         "path": "/settings",
-        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\settings\\\\index.vue",
-        "_name": "_34317b63"
+        "component": "D:\\\\拉钩教育\\\\草稿\\\\realWorld-nuxtJs\\\\pages\\\\settings\\\\index.vue"
       }
-    ],
-    "_name": "_1ecb5e08"
+    ]
   }
 ]
