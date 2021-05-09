@@ -1,82 +1,36 @@
-<!--
- * @Descripttion: 
- * @version: 
- * @Author: sueRimn
- * @Date: 2021-05-01 17:35:01
- * @LastEditors: sueRimn
- * @LastEditTime: 2021-05-06 23:49:36
--->
 <template>
   <div class="editor-page">
     <div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
-          <ul class="error-messages" v-if="errors">
-            <div v-for="(value, field) in errors" :key="field" class="ng-scope">
-              <li
-                v-for="error in value"
-                :key="error"
-                class="ng-binding ng-scope"
-              >
-                {{ field }} {{ error }}
-              </li>
-            </div>
-          </ul>
           <form>
             <fieldset>
               <fieldset class="form-group">
-                <input
-                  type="text"
-                  class="form-control form-control-lg"
-                  placeholder="Article Title"
-                  v-model="article.title"
-                  required
-                />
+                <input type="text" required v-model="article.title" class="form-control form-control-lg" placeholder="Article Title" />
               </fieldset>
               <fieldset class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="What's this article about?"
-                  v-model="article.description"
-                  required
-                />
+                <input type="text" required v-model="article.description" class="form-control" placeholder="What's this article about?" />
               </fieldset>
               <fieldset class="form-group">
                 <textarea
-                  v-model="article.body"
                   class="form-control"
                   rows="8"
                   placeholder="Write your article (in markdown)"
                   required
+                  v-model="article.body"
+                  v-html="article.body"
                 ></textarea>
               </fieldset>
               <fieldset class="form-group">
-                <input
-                  v-model="tagstr"
-                  v-on:keyup.enter="enterTag"
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter tags"
-                />
+                <input type="text" class="form-control" v-model="newTag" placeholder="Enter tags" v-on:keyup.enter="enterTag"/>
                 <div class="tag-list">
-                  <span
-                    v-for="(tag, index) in article.tagList"
-                    :key="index"
-                    class="tag-default tag-pill"
-                  >
-                    <i class="ion-close-round" @click="removeTag(index)"></i>
-                    {{ tag }}
-                  </span>
+                  <span v-for="(tag,i) in article.tagList" class="tag-default tag-pill" :key="i">
+                    <i class="ion-close-round" @click="removeTag(i)"></i>
+                    {{tag}}
+                </span>
                 </div>
               </fieldset>
-              <button
-                @click="submitArticle"
-                class="btn btn-lg pull-xs-right btn-primary"
-                type="button"
-              >
-                Publish Article
-              </button>
+              <button :disabled="publishDisabled" class="btn btn-lg pull-xs-right btn-primary" type="button" @click.prevent="submitArticle">Publish Article</button>
             </fieldset>
           </form>
         </div>
@@ -86,15 +40,14 @@
 </template>
 
 <script>
-import { createArticle } from "@/api/editor";
-
+import { getArticle,updateArticle,createArticle } from "@/api/article.js";
 export default {
-  name: "EditorIndex",
-  middleware: "authenticated",
+  middleware: ["authenticated"],
+  name: "EditorArticle",
   data() {
     return {
-      tagstr: "",
-      errors: null,
+      newTag:'',
+      publishDisabled:false,
       article: {
         title: "",
         description: "",
@@ -103,26 +56,55 @@ export default {
       },
     };
   },
+  components: {},
+  mounted() {
+    this.getArticle();
+  },
+  computed:{
+    slug(){
+      return  this.$route.params.slug
+    }
+  },
   methods: {
-    enterTag() {
-      this.article.tagList.push(this.tagstr);
-      this.tagstr = "";
-    },
-    removeTag(index) {
-      this.article.tagList.splice(index, 1);
-    },
-    async submitArticle() {
+    async getArticle() {
       try {
-        const { data } = await createArticle(this.article);
-        this.$router.push(`/article/${data.article.slug}`);
-      } catch (e) {
-        this.errors = e.response.data.errors;
+        if (!this.slug) return;
+        const { data } = await getArticle(this.slug);
+        this.article = data.article
+      } catch (err) {
+        console.log(err);
       }
     },
+    enterTag(){
+      this.article.tagList.push(this.newTag)
+      this.newTag = ''
+    },
+    removeTag(i){
+      this.article.tagList.splice(i,1)
+    },
+    async submitArticle () {
+      try{
+        this.publishDisabled=true
+        const {data} = this.slug? await updateArticle(this.slug,this.article): await createArticle(this.article)
+        if(data.article){
+          this.article = data.article
+          this.$router.push({
+            name:'article',
+            params:{
+              slug:this.article.slug
+            }
+          })
+        }else{
+          console.log('出错了')
+        }
+        this.publishDisabled=false
+      }catch(err){
+        console.log(err)
+      }
+    }
   },
 };
 </script>
 
 <style scoped>
 </style>
-

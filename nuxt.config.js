@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2021-05-01 16:21:55
  * @LastEditors: sueRimn
- * @LastEditTime: 2021-05-05 14:37:42
+ * @LastEditTime: 2021-05-08 11:30:31
  */
 module.exports = {
     router: {
@@ -32,7 +32,7 @@ module.exports = {
                     },
                     {
                         name: 'article',
-                        path: '/article/:slug',
+                        path: '/article/:slug?',
                         component: resolve(__dirname, 'pages/article/index.vue'),
                     },
                     {

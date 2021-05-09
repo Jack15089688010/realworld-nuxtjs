@@ -40,7 +40,7 @@ export const routerOptions = {
       component: _39a828e5,
       name: "register"
     }, {
-      path: "/article/:slug",
+      path: "/article/:slug?",
       component: _2ec3df90,
       name: "article"
     }, {
